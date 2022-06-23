@@ -45,13 +45,13 @@ end
 function main()
     
     # outpath fo the current file
-    outpath = joinpath(pwd(),"case_files.csv")
+    outpath = joinpath(pwd(),"scdb_case_files.csv")
 
     #Glob files from directory
-    oyez_dataframe = get_files("oyez_cited")
+    oyez_dataframe = get_files("nodes")
     
     #Glob files from directory
-    loc_dataframe = get_files("loc_cited")
+    loc_dataframe = get_files("scdb_nodes")
 
     
     # Join on File excluding extraneous data not in the oyez dataset
