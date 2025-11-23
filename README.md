@@ -1,57 +1,89 @@
-# US Supreme Court Annotated Transcripts (auto-updated)
+# US Supreme Court Annotated Transcripts Data Wrangling
 
-A dataset containing structured data on court cases presided by the justices of the United States Supreme Court, with transcripts for (nearly) every oral argument they've heard, annotated with audio timestamps and speaker identifications.
-Includes links to digitized original audio from oral proceedings.
+This repository contains the data wrangling scripts and utilities for the US Supreme Court project, which collects, processes, and organizes structured data related to Supreme Court cases and their oral argument transcripts. The data is sourced primarily from the Oyez Project's public API and is updated regularly.
 
-The data self-updates every Saturday using a [github action](https://github.com/walkerdb/supreme_court_transcripts/blob/master/.github/workflows/auto-update.yml). 
-If you just want the raw data check out the [releases tab](https://github.com/walkerdb/supreme_court_transcripts/releases), 
-which updates on the same schedule. You'll need ~3.5GB of free disk space to decompress the full archive. 
+## Features
 
-Many thanks to [@azeemba](https://github.com/azeemba) for getting the auto-update system in place.
+- Automated fetching and updating of Supreme Court case data and oral argument transcripts from the Oyez API.
+- Data files structured by case term and docket number, with separate files for transcripts of multiple oral arguments.
+- Integration with Library of Congress citation data for enhanced metadata.
+- Scripts to merge and transform data from various sources into JSON formats for downstream use.
+- Automated release management via GitHub API to maintain up-to-date dataset versions.
 
-## Data structure
+## Tech Stack
 
-Data for each case is in a file named in the following pattern: `{year}.{docket #}.json`.
-Transcripts for each hearing associated with that case have the same pattern, but appending `t01`, `t02`, etc.,
-for each individual hearing.
+- Python 3
+- Jupyter Notebooks (primary language for data exploration and processing)
+- Requests library for HTTP API interactions
+- ratelimit for API call throttling
+- pandas for data manipulation
 
-For example, the overview for Roe v. Wade is given in `1971.70-18.json`. It had two separate oral arguments --
-these two transcripts live in `1971.70-18-t01.json` and `1971.70-18-t02.json`.
+## Getting Started
 
-At the end of each transcript json file is a `media_file` field, which contains an array of objects holding
-Amazon s3 links to the digitized audio for that hearing in `mp3`, `ogg`, and `m3u8` formats.
+### Prerequisites
 
-Note that `docket #` normally is two numbers joined by `-`. In some cases, the actual docket number has a space
-like `10 ORIG`. In those situations the filename has a `_` in place of the space. Cases before 1955 do not seem 
-to follow this pattern, and in general are less complete than cases after.
+- Python 3.7 or higher
+- Git
 
-## Where does this come from?
+### Installation
 
-All data is retrieved weekly from [oyez.org](https://www.oyez.org)'s public api. Read more about the Oyez project [here](https://www.oyez.org/about).
+Clone the repository:
 
-[Licensed as CC-BY-NC to Oyez, Inc.](https://www.oyez.org/license), a collaboration of Cornell’s Legal Information Institute, Chicago-Kent College of Law, and Justia.com.
+```bash
+git clone https://github.com/justin-napolitano/supreme_court_data.git
+cd supreme_court_data
+```
 
-## Oyez API
+Install dependencies:
 
-Oyez has a wonderful but undocumented public API. Here's the gist of it:
+```bash
+pip install -r requirements.txt
+```
 
-To retrieve all case summaries (the equivalent of the `case_summaries.json` file):  
-`https://api.oyez.org/cases?per_page=0`
+### Running Update Script
 
-If you don't want everything you can add a term filter, like the following:  
-`https://api.oyez.org/cases?per_page=0&filter=term:1965`
+The `update.py` script fetches new or missing Supreme Court cases and transcripts from the Oyez API. Run:
 
-That data will hold links to get further info on each case. eg:  
-`https://api.oyez.org/cases/1965/14_orig`
+```bash
+python update.py
+```
 
-The format here is generally `api.oyez.org/cases/{term}/{docket_number}`
+### Publishing Releases
 
-The "oral_argument_audio" field in this case-specific response holds links to the audio and transcriptions for each hearing - this data is what is saved in the transcription files in the repo. eg:  
-`https://api.oyez.org/case_media/oral_argument_audio/14026`
+The `publish.py` script manages GitHub releases, keeping a maximum of 3 releases and creating a new release tagged with the current date. It requires the `GITHUB_TOKEN` environment variable to be set with a valid GitHub API token.
 
-The [update.py](./update.py) script uses this API to auto-update this repo.
-You can also use it to help you keep your local copies updated.
+```bash
+export GITHUB_TOKEN=your_token_here
+python publish.py
+```
 
------------------------
+## Project Structure
 
-The owner of this repo has no affiliation with the Oyez project -- just admiration!
+```
+supreme_court_data/
+├── oyez/                      # Data processing and merging scripts
+│   ├── json_to_db.py          # Converts JSON data to database-ready format
+│   ├── merge_scdb.py          # Merges Supreme Court Database data with master dataset
+│   ├── merge_scdb_with_master.py # Extended merging with master data
+│   ├── merge_python.py        # Additional merging utilities
+│   ├── rename_oyez_files.py   # Renames and organizes Oyez JSON files
+│   ├── loc_cited/             # Library of Congress cited case JSON files
+│   └── case_summaries.json    # Sample case summaries data
+├── publish.py                 # Script to manage GitHub releases
+├── update.py                  # Script to fetch and update case and transcript data
+├── README.md                  # This file
+└── requirements.txt           # Python dependencies
+```
+
+## Future Work / Roadmap
+
+- Enhance error handling and retry mechanisms in API fetching scripts.
+- Expand data integration with additional legal databases and metadata sources.
+- Develop a database backend to store and query the case and transcript data efficiently.
+- Implement more comprehensive automated testing.
+- Add detailed documentation and usage examples for each script.
+- Improve the data update automation workflow and monitoring.
+
+---
+
+*Note: Some assumptions about project details and structure were made based on available code and data samples.*
