@@ -20,6 +20,13 @@ seoSecondaryKeywords:
   - ozey api
   - legal metadata
 seoOptimized: true
+topicFamily: automation
+topicFamilyConfidence: 0.95
+topicFamilyNotes: >-
+  The post centers on creating and maintaining an automated data pipeline with scripts for API
+  integration, rate-limiting, scheduled updates, and release management which aligns strongly with
+  the Automation family and its focus on automating workflows including git and deployment
+  automation.
 ---
 
 # US Supreme Court Data Wrangling: Technical Overview
@@ -82,3 +89,4 @@ API calls to Oyez are rate-limited to avoid overloading the public API, using de
 ## Summary
 
 This repository provides a practical, automated framework to maintain an up-to-date, richly annotated dataset of US Supreme Court cases and oral argument transcripts. It integrates multiple authoritative sources, enforces API usage constraints, and supports versioned releases for user access. The codebase balances data acquisition, transformation, and organization with automation to support ongoing research and application development in legal and political domains.
+
