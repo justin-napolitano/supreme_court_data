@@ -1,12 +1,26 @@
 ---
-slug: "github-supreme-court-data"
-title: "supreme_court_data"
-repo: "justin-napolitano/supreme_court_data"
-githubUrl: "https://github.com/justin-napolitano/supreme_court_data"
-generatedAt: "2025-11-23T09:45:18.470770Z"
-source: "github-auto"
+slug: github-supreme-court-data
+title: Automated Data Pipeline for US Supreme Court Case Transcripts
+repo: justin-napolitano/supreme_court_data
+githubUrl: https://github.com/justin-napolitano/supreme_court_data
+generatedAt: '2025-11-23T09:45:18.470770Z'
+source: github-auto
+summary: >-
+  Technical overview of an automated system collecting, processing, and organizing US Supreme Court
+  oral argument transcripts and case metadata.
+tags:
+  - legal-data
+  - data-pipeline
+  - supreme-court
+  - api-integration
+  - automation
+seoPrimaryKeyword: supreme court data
+seoSecondaryKeywords:
+  - oral argument transcripts
+  - ozey api
+  - legal metadata
+seoOptimized: true
 ---
-
 
 # US Supreme Court Data Wrangling: Technical Overview
 
