@@ -7,8 +7,8 @@ githubUrl: https://github.com/justin-napolitano/supreme_court_data
 generatedAt: '2025-11-24T21:36:37.251Z'
 source: github-auto
 summary: >-
-  Explore scripts for collecting and processing US Supreme Court case data from
-  the Oyez Project API, including automated updates and release management.
+  Explore scripts for collecting and processing US Supreme Court case data from the Oyez Project
+  API, including automated updates and release management.
 tags:
   - python
   - data wrangling
@@ -26,8 +26,8 @@ seoSecondaryKeywords:
   - Python data processing
   - legal data integration
 seoOptimized: true
-topicFamily: null
-topicFamilyConfidence: null
+topicFamily: datascience
+topicFamilyConfidence: 0.9
 kind: project
 entryLayout: project
 showInProjects: true
@@ -123,3 +123,4 @@ supreme_court_data/
 ---
 
 *Note: Some assumptions about project details and structure were made based on available code and data samples.*
+
