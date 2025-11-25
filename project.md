@@ -1,21 +1,31 @@
 ---
 slug: github-supreme-court-data
 id: github-supreme-court-data
-title: US Supreme Court Annotated Transcripts Data Wrangling
+title: Supreme Court Data Wrangling Scripts and Utilities
 repo: justin-napolitano/supreme_court_data
 githubUrl: https://github.com/justin-napolitano/supreme_court_data
 generatedAt: '2025-11-24T21:36:37.251Z'
 source: github-auto
 summary: >-
-  This repository contains the data wrangling scripts and utilities for the US
-  Supreme Court project, which collects, processes, and organizes structured
-  data related to Supreme Court cases and their oral argument transcripts. The
-  data is sourced primarily from the Oyez Project's public API and is updated
-  regularly.
-tags: []
-seoPrimaryKeyword: ''
-seoSecondaryKeywords: []
-seoOptimized: false
+  Explore scripts for collecting and processing US Supreme Court case data from
+  the Oyez Project API, including automated updates and release management.
+tags:
+  - python
+  - data wrangling
+  - supreme court
+  - Oyez API
+  - data processing
+  - GitHub API
+  - pandas
+  - Jupyter Notebooks
+seoPrimaryKeyword: supreme court data wrangling
+seoSecondaryKeywords:
+  - Oyez Project API
+  - data automation scripts
+  - GitHub release management
+  - Python data processing
+  - legal data integration
+seoOptimized: true
 topicFamily: null
 topicFamilyConfidence: null
 kind: project
