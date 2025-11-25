@@ -1,32 +1,43 @@
 ---
 slug: github-supreme-court-data
-title: Automated Data Pipeline for US Supreme Court Case Transcripts
+title: Automated US Supreme Court Data Wrangling Overview
 repo: justin-napolitano/supreme_court_data
 githubUrl: https://github.com/justin-napolitano/supreme_court_data
 generatedAt: '2025-11-23T09:45:18.470770Z'
 source: github-auto
 summary: >-
-  Technical overview of an automated system collecting, processing, and organizing US Supreme Court
-  oral argument transcripts and case metadata.
+  Explore a structured approach to collect and organize US Supreme Court case
+  data using the Oyez API and other authoritative sources.
 tags:
   - legal-data
   - data-pipeline
   - supreme-court
   - api-integration
   - automation
-seoPrimaryKeyword: supreme court data
+  - Oyez API
+  - data wrangling
+  - GitHub Actions
+  - JSON processing
+  - Supreme Court Database
+  - data automation
+  - legal data
+seoPrimaryKeyword: supreme court data wrangling
 seoSecondaryKeywords:
-  - oral argument transcripts
-  - ozey api
-  - legal metadata
+  - Oyez Project
+  - legal research datasets
+  - API rate limiting
+  - data organization techniques
+  - GitHub release management
 seoOptimized: true
 topicFamily: automation
 topicFamilyConfidence: 0.95
 topicFamilyNotes: >-
-  The post centers on creating and maintaining an automated data pipeline with scripts for API
-  integration, rate-limiting, scheduled updates, and release management which aligns strongly with
-  the Automation family and its focus on automating workflows including git and deployment
-  automation.
+  The post centers on creating and maintaining an automated data pipeline with
+  scripts for API integration, rate-limiting, scheduled updates, and release
+  management which aligns strongly with the Automation family and its focus on
+  automating workflows including git and deployment automation.
+kind: project
+id: github-supreme-court-data
 ---
 
 # US Supreme Court Data Wrangling: Technical Overview
